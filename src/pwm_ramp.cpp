@@ -11,7 +11,7 @@
 
 #include <Arduino.h>
 #include "pwm_ramp.h"
-#include "simpletimeout.h"
+#include "intellitimeout.h"
 
 
 PWM_RAMP::PWM_RAMP(void) {

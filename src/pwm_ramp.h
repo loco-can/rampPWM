@@ -11,7 +11,7 @@
 #ifndef PWM_RAMP_H
 #define PWM_RAMP_H
 
-#include "simpletimeout.h"
+#include "intellitimeout.h"
 
 // =====================================
 //
@@ -60,7 +60,7 @@ class PWM_RAMP {
 
 		// timeout value > RAMP_DEFAULT
 		uint16_t _update_rate;
-		SIMPLETIMEOUT _timer;
+		INTELLITIMEOUT _timer;
 };
 
 
