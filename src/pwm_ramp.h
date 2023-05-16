@@ -45,8 +45,8 @@ class PWM_RAMP {
 
 
 	private:
-		uint16_t ramp();
-		void write_pwm(uint16_t pwm);
+		uint16_t _ramp(void);
+		void _write_pwm(uint16_t pwm);
 
 		uint8_t _port;
 		uint16_t _pwm;

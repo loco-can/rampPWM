@@ -33,7 +33,7 @@ void PWM_RAMP::begin(uint8_t port, uint16_t update_rate, bool frequency) {
 	// start timer
 	_timer.begin(_update_rate);
 
-	write_pwm(0);
+	_write_pwm(0);
 	set_ramp(0);
 
 	// start pwm
@@ -68,8 +68,8 @@ uint16_t PWM_RAMP::update() {
 
 	// ramp rate
 	if (_timer.update()) {
-		_current_pwm = ramp();
-		write_pwm(_current_pwm);
+		_current_pwm = _ramp();
+		_write_pwm(_current_pwm);
 	}
 
 	return _current_pwm;
@@ -114,7 +114,7 @@ void PWM_RAMP::set_ramp(uint16_t ramp_time) {
 
 
 // calculate ramp value
-uint16_t PWM_RAMP::ramp() {
+uint16_t PWM_RAMP::_ramp() {
 
 	uint16_t delta;
 
@@ -181,7 +181,7 @@ uint16_t PWM_RAMP::pwmReadTarget(void) {
 
 
 // write pwm to port
-void PWM_RAMP::write_pwm(uint16_t pwm) {
+void PWM_RAMP::_write_pwm(uint16_t pwm) {
 
 	// write pwm
 	analogWrite(_port, pwm);
